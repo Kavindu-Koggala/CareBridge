@@ -12,6 +12,7 @@ app = Flask(__name__)
 from flask_cors import CORS
 CORS(app)
 
+#Food classes
 # Class labels for food classification
 class_labels = [
     "beignets", "breakfast_burrito", "caesar_salad", "chicken_curry",
