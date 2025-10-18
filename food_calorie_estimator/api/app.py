@@ -93,7 +93,7 @@ def predict():
     os.makedirs("uploads", exist_ok=True)
     file.save(img_path)
 
-    # test data
+    # test food data
     if re.match(r"^t\d+\.jpg$", file.filename.lower()):
         return jsonify({"error": "Invalid image for prediction"}), 300
 
