@@ -1,0 +1,58 @@
+<div class="home-container">
+  <div class="dashboard">
+    <!-- Patient Condition Status Bar -->
+    <div class="condition-container">
+      <div class="condition" [ngClass]="{ 'active': currentCondition === 'Asking for help' }">
+        <i class="fa fa-question-circle" aria-hidden="true"></i> Asking for help
+      </div>
+      <div class="condition" [ngClass]="{ 'active': currentCondition === 'Coughing' }">
+        <i class="fa fa-cough" aria-hidden="true"></i> Coughing
+      </div>
+      <div class="condition" [ngClass]="{ 'active': currentCondition === 'Screaming' }">
+        <i class="fa fa-volume-up" aria-hidden="true"></i> Screaming
+      </div>
+      <div class="condition" [ngClass]="{ 'active': currentCondition === 'Normal' }">
+        <i class="fa fa-smile" aria-hidden="true"></i> Normal
+      </div>
+      <div class="condition" [ngClass]="{ 'active': currentCondition === 'Critical' }">
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Critical
+      </div>
+    </div>
+
+    <!-- Listening Animation -->
+    <div class="listening-animation">
+      <p>We are listening for vital signs...</p>
+    </div>
+
+    <!-- Heart Rate and Blood Pressure Gauges -->
+    <div class="gauge-container">
+      <div class="gauge">
+        <ngx-gauge [value]="heartRate" [label]="'Heart Rate (bpm)'" [min]="0" [max]="180"></ngx-gauge>
+        <div class="gauge-heading">Heart Rate</div>
+      </div>
+      <div class="gauge">
+        <ngx-gauge [value]="bloodPressure" [label]="'Blood Pressure (mmHg)'" [min]="0" [max]="200"></ngx-gauge>
+        <div class="gauge-heading">Blood Pressure</div>
+      </div>
+    </div>
+
+    <div class="alerts">
+      <h3>Critical Alerts</h3>
+      <div *ngFor="let alert of alerts" class="alert">
+        <p><strong>{{ alert.timestamp | date:'short' }}:</strong> {{ alert.message }}</p>
+      </div>
+    </div>
+    
+    <!-- Emergency Buttons Bar (Separate from Critical Alerts) -->
+    <div class="emergency-bar">
+      <button class="emergency-btn police">
+        <i class="fa fa-phone"></i> 119 Police Emergency
+      </button>
+      <button class="emergency-btn rescue">
+        <i class="fa fa-phone"></i> 110 Rescue Services
+      </button>
+      <button class="emergency-btn ambulance">
+        <i class="fa fa-ambulance"></i> 1990 Ambulance Service
+      </button>
+    </div>
+    

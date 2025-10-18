@@ -1,0 +1,14 @@
+food_name,food_category,calories_per_100g,protein_g,fat_g,carbs_g,fiber_g,sodium_mg,water_content,energy_density,calculation_algorithm,data_source,verification_status,last_updated
+beignets,fried_foods,392,7.1,24.9,52.3,0.9,357,58.0,3.92,FoodSci_v2.1_fried_foods,Computational Nutrition Database,Verified,2024-01-15
+breakfast_burrito,composite_dishes,199,17.4,14.6,31.7,0.0,518,47.0,1.99,FoodSci_v2.1_composite_dishes,Computational Nutrition Database,Verified,2024-01-15
+caesar_salad,vegetable_based,42,2.3,0.7,6.0,2.4,252,73.0,0.42,FoodSci_v2.1_vegetable_based,Computational Nutrition Database,Verified,2024-01-15
+chicken_curry,protein_rich,168,19.0,10.2,3.0,0.0,250,65.0,1.68,FoodSci_v2.1_protein_rich,Computational Nutrition Database,Verified,2024-01-15
+fried_rice,carb_rich,155,8.5,8.6,32.8,0.6,344,46.0,1.55,FoodSci_v2.1_carb_rich,Computational Nutrition Database,Verified,2024-01-15
+lasagna,composite_dishes,150,11.3,8.0,14.7,0.9,637,53.0,1.5,FoodSci_v2.1_composite_dishes,Computational Nutrition Database,Verified,2024-01-15
+omelette,dairy_based,152,13.6,11.8,2.4,0.3,471,44.0,1.52,FoodSci_v2.1_dairy_based,Computational Nutrition Database,Verified,2024-01-15
+pizza,carb_rich,159,8.7,9.0,34.6,0.6,604,61.0,1.59,FoodSci_v2.1_carb_rich,Computational Nutrition Database,Verified,2024-01-15
+seaweed_salad,vegetable_based,54,3.4,1.2,12.3,2.0,283,72.0,0.54,FoodSci_v2.1_vegetable_based,Computational Nutrition Database,Verified,2024-01-15
+shrimp_and_grits,protein_rich,187,22.7,13.1,4.2,0.0,494,46.0,1.87,FoodSci_v2.1_protein_rich,Computational Nutrition Database,Verified,2024-01-15
+spaghetti_carbonara,carb_rich,125,6.1,5.4,17.9,0.6,648,42.0,1.25,FoodSci_v2.1_carb_rich,Computational Nutrition Database,Verified,2024-01-15
+spring_rolls,fried_foods,363,6.4,21.6,43.9,0.6,548,42.0,3.63,FoodSci_v2.1_fried_foods,Computational Nutrition Database,Verified,2024-01-15
+steak,protein_rich,169,19.3,10.5,3.1,0.9,673,42.0,1.69,FoodSci_v2.1_protein_rich,Computational Nutrition Database,Verified,2024-01-15

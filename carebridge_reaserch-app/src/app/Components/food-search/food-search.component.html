@@ -1,0 +1,187 @@
+<app-navbar></app-navbar>
+<div class="food-search-container">
+  <div class="search-header">
+    <h1 class="title">🍽️ Food Nutrition Search</h1>
+    <p class="subtitle">
+      Search for foods to view ingredients and nutritional information
+    </p>
+  </div>
+
+  <div class="search-section">
+    <div class="search-input-container">
+      <input
+        type="text"
+        [formControl]="searchControl"
+        placeholder="Search for foods (e.g., 'chicken breast', 'apple', 'bread')..."
+        class="search-input"
+        autocomplete="off"
+      />
+      <button
+        class="clear-search-btn"
+        *ngIf="searchControl.value"
+        (click)="clearSearch()"
+        title="Clear search"
+      >
+        ✕
+      </button>
+    </div>
+
+    <div class="loading-indicator" *ngIf="loading">
+      <div class="spinner"></div>
+      <span>Searching...</span>
+    </div>
+
+    <div class="error-message" *ngIf="error">
+      <span class="error-icon">⚠️</span>
+      {{ error }}
+    </div>
+
+    <div class="results-count" *ngIf="searchResults.length > 0">
+      Found {{ totalResults }} foods with ingredients
+    </div>
+  </div>
+
+  <div class="content-container">
+    <div class="search-results" *ngIf="searchResults.length > 0">
+      <h3>Search Results</h3>
+      <div class="results-list">
+        <div
+          class="result-item"
+          *ngFor="let food of searchResults; trackBy: trackByFdcId"
+          (click)="selectFood(food)"
+          [class.selected]="selectedFoodDetails?.usda?.fdcId === food.fdcId"
+        >
+          <div class="result-content">
+            <h4 class="food-name">{{ food.description }}</h4>
+            <div class="food-meta">
+              <span
+                class="data-type"
+                [class]="'type-' + (food.dataType?.toLowerCase() || '')"
+              >
+                {{ food.dataType }}
+              </span>
+              <span class="brand-owner" *ngIf="food.brandOwner">
+                {{ food.brandOwner }}
+              </span>
+              <span
+                class="has-ingredients"
+                *ngIf="food.ingredients || food.ingredientStatement"
+              >
+                📋 Has ingredients
+              </span>
+            </div>
+          </div>
+
+          <div class="select-arrow">
+            <span *ngIf="selectedFoodDetails?.usda?.fdcId === food.fdcId"
+              >✓</span
+            >
+            <span *ngIf="selectedFoodDetails?.usda?.fdcId !== food.fdcId"
+              >→</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="food-details" *ngIf="selectedFoodDetails">
+      <div class="details-header">
+        <h3>Food Details</h3>
+        <button
+          class="close-details-btn"
+          (click)="clearSelection()"
+          title="Close details"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div class="details-content">
+        <div class="food-info">
+          <h4 class="food-title">
+            {{ selectedFoodDetails?.usda?.description }}
+          </h4>
+          <div class="food-metadata">
+            <span
+              class="data-type"
+              [class]="
+                'type-' +
+                (selectedFoodDetails?.usda?.dataType?.toLowerCase() || '')
+              "
+            >
+              {{ selectedFoodDetails?.usda?.dataType }}
+            </span>
+          </div>
+        </div>
+
+        <div class="nutrition-summary">
+          <div class="calorie-display">
+            <div
+              class="calorie-number"
+              [class.zero-calories]="!selectedFoodDetails?.best?.calories"
+            >
+              <span *ngIf="selectedFoodDetails?.best?.calories; else noData">
+                {{ selectedFoodDetails.best.calories }} kcal
+              </span>
+              <ng-template #noData>
+                <span class="calorie-note">(No calorie data found)</span>
+              </ng-template>
+            </div>
+
+            <div
+              class="calorie-unit"
+              *ngIf="selectedFoodDetails?.best?.calories"
+            >
+              calories
+            </div>
+
+            <div class="serving-info">
+              {{ selectedFoodDetails?.usda?.servingSize || "Per 100g" }}
+            </div>
+          </div>
+        </div>
+
+        <div class="ingredients-section">
+          <h5 class="section-title">
+            <span class="icon">🧾</span>
+            Ingredients
+          </h5>
+          <div class="ingredients-content">
+            <p class="ingredients-text">
+              {{
+                selectedFoodDetails?.usda?.ingredients ||
+                  "Ingredients not available"
+              }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="empty-state"
+    *ngIf="!loading && searchResults.length === 0 && !searchControl.value"
+  >
+    <div class="empty-icon">🔍</div>
+    <h3>Start searching for foods</h3>
+    <p>
+      Type in the search box above to find foods with both ingredients and
+      calorie information
+    </p>
+  </div>
+
+  <div
+    class="no-results"
+    *ngIf="
+      !loading && searchResults.length === 0 && searchControl.value && !error
+    "
+  >
+    <div class="no-results-icon">🤷‍♀️</div>
+    <h3>No foods found with complete data</h3>
+    <p>
+      Try searching for different branded products that have both ingredients
+      and calorie information
+    </p>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+
+<h2>Daily Calorie Tracker</h2>
+
+<label>Height (cm):</label>
+<input type="number" [(ngModel)]="height" />
+
+<label>Weight (kg):</label>
+<input type="number" [(ngModel)]="weight" />
+
+<label>Age:</label>
+<input type="number" [(ngModel)]="age" />
+
+<label>Gender:</label>
+<select [(ngModel)]="gender">
+  <option value="male">Male</option>
+  <option value="female">Female</option>
+</select>
+
+<button (click)="updateUser()">Update Profile</button>
+
+<p *ngIf="bmi">BMI: {{ bmi }}</p>
+<p *ngIf="dailyCaloriesNeeded">Daily Calorie Need: {{ dailyCaloriesNeeded }}</p>
+
+<!-- Chart -->
+<canvas baseChart
+        [data]="barChartData"
+        [type]="barChartType"
+        [options]="barChartOptions">
+</canvas>
+

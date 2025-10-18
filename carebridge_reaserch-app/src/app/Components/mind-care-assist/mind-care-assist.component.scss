@@ -1,0 +1,305 @@
+.mind-care-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 100vh;
+  background: url('/mindcare.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #f8f8f8;
+
+  .header {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #f8f8f8;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease-out;
+    }
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .mood-responsive-card {
+      max-width: 700px;
+      height: 390px;
+      width: 700px;
+      padding: 20px;
+      margin-left: 500px;
+      
+      background: rgba(168, 169, 165, 0.786);
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      margin-top: 20px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      h3 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #94d3ac;
+        margin-bottom: 15px;
+        animation: slideIn 1s ease-out;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #f8f8f8;
+        margin-bottom: 15px;
+      }
+
+      .adjustment-info {
+        margin-top: 10px;
+
+        strong {
+          color: #ffde59;
+        }
+
+        /* Light condition progress bar */
+        .light-animation-bar {
+          margin: 15px 0;
+          width: 100%;
+          height: 15px;
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 7px;
+          overflow: hidden;
+          position: relative;
+
+          .light-level {
+            height: 100%;
+            width: 0%; /* Dynamically adjust */
+            background: linear-gradient(90deg, #ffde59, #ffba08);
+            animation: lightFill 3s forwards;
+          }
+        }
+
+        /* Music-playing animation */
+        .music-animation {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 15px;
+
+          .note {
+            width: 10px;
+            height: 10px;
+            background: #ffde59;
+            border-radius: 5px;
+            animation: musicWave 1.2s infinite ease-in-out;
+
+            &:nth-child(2) {
+              animation-delay: 0.2s;
+            }
+
+            &:nth-child(3) {
+              animation-delay: 0.4s;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .data-visualization {
+    width: 250px;
+    padding: 15px;
+    background: rgba(158, 219, 222, 0.773);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 30px;
+    animation: fadeIn 1s ease-out;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #003616;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .metric-card {
+        background: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+
+        h4 {
+          font-size: 1.1rem;
+          color: #002902;
+          margin-bottom: 10px;
+        }
+
+        .mood-indicator {
+          font-size: 2rem;
+          color: #ffde59;
+        }
+
+        p {
+          font-size: 1rem;
+          color: #f8f8f8;
+        }
+
+        .metric-icon {
+          font-size: 2rem;
+          color: #ffde59;
+          margin-top: 10px;
+          animation: pulse 1.5s infinite;
+        }
+      }
+    }
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes lightFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 75%; /* Adjust based on the light intensity */
+  }
+}
+
+@keyframes musicWave {
+  0%, 100% {
+    height: 10px;
+  }
+  50% {
+    height: 30px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+  /* Sleep Optimization Card */
+.sleep-optimization-card {
+  max-width: 300px;
+  width: 230px;
+  margin-top: 20px;
+  margin-left: 300px;
+  height: 350px; /* Taller card */
+  padding: 20px;
+  background: rgba(6, 0, 0, 0.89);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  animation: fadeIn 2s ease-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #11caca;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(17, 202, 202, 0.7);
+  }
+
+  p {
+    font-size: 1rem;
+    color: #f8f8f8;
+    margin-bottom: 15px;
+  }
+
+  .sleep-info {
+    margin-top: 10px;
+    color: #f8f8f8;
+
+    strong {
+      color: #ffde59;
+    }
+
+    .sleep-metrics {
+      margin-top: 10px;
+      color: #ffba08;
+      animation: pulse 2s infinite alternate;
+    }
+  }
+}
+
+/* Pulse animation for Sleep Metrics */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Gentle Fade-In animation for the card */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

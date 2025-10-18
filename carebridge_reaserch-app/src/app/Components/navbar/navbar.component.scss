@@ -1,0 +1,192 @@
+.navbar {
+  background: white; /* Midnight blue to teal gradient */
+  color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    overflow: visible; /* Ensure dropdown is visible */
+  }
+
+  /* Brand Logo */
+  .navbar-logo a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+
+    &:hover {
+      color: #d1e7f8;
+    }
+  }
+
+  /* Navigation Links */
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+    li a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #050000;
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: rgba(18, 209, 223, 0.2);
+        color: #000000;
+      }
+    }
+  }
+
+  .navbar-profile {
+    position: relative; /* Ensure positioning is anchored to this element */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: visible;
+  
+    .profile-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+  
+    .profile-dropdown {
+      position: absolute;
+      top: 60px; /* Position the dropdown below the avatar */
+      right: 0; /* Align to the right edge of the navbar */
+      background-color: #ffffff; /* Clean background for dropdown */
+      color: #2a5298; /* Elegant text color */
+      list-style: none;
+      padding: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      min-width: 200px; /* Ensures enough space for dropdown items */
+      z-index: 1000;
+      display: none; /* Hidden by default */
+  
+      li {
+        a {
+          text-decoration: none;
+          color: #2a5298;
+          padding: 10px 15px;
+          font-family: 'Poppins', sans-serif;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+  
+          &:hover {
+            background-color: #e3f2fd;
+          }
+        }
+      }
+    }
+  
+    /* Dropdown visibility on hover */
+    &:hover .profile-dropdown {
+      display: block;
+    }
+  }
+  
+  /* Prevent cutoff near viewport edge */
+  @media (max-width: 400px) {
+    .profile-dropdown {
+      right: auto; /* Disable right alignment */
+      left: 0; /* Align dropdown to the left */
+      transform: translateX(-10%); /* Slight adjustment for better positioning */
+    }
+  }
+}  
+/* Import Elegant Font */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
+.navbar {
+  .navbar-logo {
+    a.branding {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: #000000;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        color: #d32f2f;
+        transform: scale(1.1);
+      }
+
+      .heart-rate {
+        width: 150px;
+        height: 73px;
+        position: relative;
+        margin-left: 10px;
+      }
+
+      .fade-in {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #FFFFFF;
+        top: 0;
+        right: 0;
+        animation: heartRateIn 2.5s linear infinite;
+      }
+
+      .fade-out {
+        position: absolute;
+        width: 120%;
+        height: 100%;
+        top: 0;
+        left: -120%;
+        animation: heartRateOut 2.5s linear infinite;
+        background: rgba(255, 255, 255, 1);
+        background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0) 100%);
+      }
+    }
+  }
+}
+
+/* Heart Rate Animations */
+@keyframes heartRateIn {
+  0% {
+    width: 100%;
+  }
+  50% {
+    width: 0;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes heartRateOut {
+  0% {
+    left: -120%;
+  }
+  30% {
+    left: -120%;
+  }
+  100% {
+    left: 0;
+  }
+}
