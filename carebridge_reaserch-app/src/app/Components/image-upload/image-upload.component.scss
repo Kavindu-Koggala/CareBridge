@@ -1,0 +1,215 @@
+// src/app/image-upload/image-upload.component.scss
+
+$primary-color: #007bff;
+$secondary-color: #f8f9fa;
+$error-color: #fae1e4;
+$error-text-color: #bc2a3b;
+$text-color: #333;
+
+:root {
+  background-color: $secondary-color;
+}
+
+.upload-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  min-height: 100%;
+  background-image: url('../../../assets/BGimage.jpg'); 
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+
+.main-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  margin: 20px auto; // Adjusted margin for better spacing
+  margin-top: 100PX; 
+}
+
+h2 {
+  color: $primary-color;
+  margin-bottom: 15px;
+}
+
+input[type='file'],
+input[type='text'] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  background: $primary-color;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: darken($primary-color, 10%);
+  }
+}
+
+button:nth-child(2) {
+  background: #6c757d;
+
+  &:hover {
+    background: darken(#6c757d, 10%);
+  }
+}
+
+.total-calories {
+  background: lighten($primary-color, 40%);
+  padding: 15px;
+  border-radius: 8px;
+  color: $text-color;
+  margin-top: 15px;
+}
+
+.error {
+  background: $error-color;
+  color: $error-text-color;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.response-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+.response-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+.edit-form {
+  .edit-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  }
+
+  .edit-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+
+    button {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: darken(#28a745, 10%);
+      }
+
+      &:last-child {
+        background: #6c757d;
+
+        &:hover {
+          background: darken(#6c757d, 10%);
+        }
+      }
+    }
+  }
+}
+.card-content {
+  p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #555;
+
+    strong {
+      color: #333;
+    }
+  }
+}
+
+
+h3, h4 {
+  margin-bottom: 10px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+
+  button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: darken(#007bff, 10%);
+    }
+
+    &:last-child {
+      background: #dc3545;
+
+      &:hover {
+        background: darken(#dc3545, 10%);
+      }
+    }
+  }
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.tracker-button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+

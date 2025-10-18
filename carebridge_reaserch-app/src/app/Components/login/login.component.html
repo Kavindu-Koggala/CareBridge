@@ -1,0 +1,27 @@
+<div class="header">
+    <h1 class="shining-text">CareBridge</h1>
+  </div>
+  
+  <div class="login-container">
+    <h2>Welcome Back</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+        placeholder="Enter your email"
+      />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        placeholder="Enter your password"
+      />
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+<div class="upload-container">
+<div class="main-card">
+  <h2>Upload Image</h2>
+  <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+
+  <!-- Updated weight input with placeholder instead of label -->
+  <input type="text" id="weight-input" [(ngModel)]="weight" placeholder="Weight (g)" />
+
+  <button (click)="onUpload()">Upload</button>
+  <button (click)="clearFields()">Reset</button>
+
+  <!-- Total Calories -->
+  <div class="total-calories" *ngIf="totalCaloriesSum">
+    <h3>Total Calories</h3>
+    <pre>{{ totalCaloriesSum }}</pre>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="error" class="error">
+    <h3>Error</h3>
+    <pre>{{ error }}</pre>
+  </div>
+</div>
+
+<div>
+  <button routerLink="/daily-calorie-tracker" class="tracker-button">
+    Daily Calorie Tracker
+  </button>
+</div>
+
+
+
+  <!-- Saved Predictions -->
+  <div class="response-container" *ngIf="savedResponses.length > 0">
+    <h3>Saved Predictions</h3>
+    <div class="card-grid">
+      <div *ngFor="let response of savedResponses; let i = index" class="response-card">
+        <!-- Display mode -->
+        <div *ngIf="editingPrediction?.id !== response.id">
+          <h4>Food Item {{ i + 1 }}</h4>
+          <div class="card-content">
+            <p><strong>Food:</strong> {{ response.food }}</p>
+            <p><strong>Calories per 100g:</strong> {{ response.calories_per_100g }}</p>
+            <p><strong>Confidence:</strong> {{ response.confidence }}</p>
+            <p><strong>Total Calories:</strong> {{ response.total_calories }}</p>
+          </div>
+          <div class="actions">
+            <button (click)="startEdit(response)">Edit</button>
+            <button (click)="deletePrediction(response.id)">Delete</button>
+          </div>
+        </div>
+
+        <!-- Edit mode -->
+        <div *ngIf="editingPrediction?.id === response.id" class="edit-form">
+          <h4>Edit Food Item {{ i + 1 }}</h4>
+          <div class="edit-fields">
+            <label for="edit-food">Food:</label>
+            <input id="edit-food" [(ngModel)]="updatedFood" />
+
+            <label for="edit-weight">Weight (g):</label>
+            <input id="edit-weight" type="number" [(ngModel)]="updatedWeight" />
+
+            <label for="edit-calories">Calories:</label>
+            <input id="edit-calories" type="number" [(ngModel)]="updatedCalories" />
+
+            <label for="edit-confidence">Confidence:</label>
+            <input id="edit-confidence" [(ngModel)]="updatedConfidence" />
+          </div>
+          <div class="edit-actions">
+            <button (click)="updatePrediction()">Save</button>
+            <button (click)="cancelEdit()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

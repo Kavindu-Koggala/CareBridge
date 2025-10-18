@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+<div class="home-container">
+  <div class="feature-cards">
+    <div class="feature-card large-card">
+      <div class="card-content">
+        <h3>Mind Care Assist <span class="assistant-emoji">👩‍💼</span></h3>
+        <p>Support for mental well-being, tailored to individual needs.</p>
+        <div class="objectives-summary">
+          <div class="objective">
+            <span class="feature-icon">🎵</span>
+            <h4>Environment Adjustment</h4>
+            <div class="visuals">
+              <div class="light-status">
+                <div class="status-bar" style="width: 75%"></div>
+                <span class="status-text">Brightness: Calm</span>
+              </div>
+              <div class="sound-status">
+                <div class="volume-indicator">
+                  <div class="volume-bar" style="height: 80%"></div>
+                </div>
+                <span class="status-text">Genre: Jazz</span>
+              </div>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="objective">
+            <span class="feature-icon">🧠</span>
+            <h4>ADHD Support</h4>
+            <p>Interactive tasks and games to enhance cognitive ability and focus.</p>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="objective">
+            <span class="feature-icon">🌙</span>
+            <h4>Sleep Pattern Optimization</h4>
+            <p>Improving sleep through data from wearable IoT devices.</p>
+          </div>
+        </div>
+        <a routerLink="/mind-care-assist" class="cta-button">Explore Mind Care Assist</a>
+      </div>
+    </div>
+
+   <div class="critical-alert-card">
+    <div class="alert-card">
+      <div class="card-header">
+        <h3>Critical Alert</h3>
+      </div>
+      <div class="card-body">
+        <div class="alert-status">
+          <!-- Existing Content -->
+          <p>Current Status:</p>
+          <div class="status-container">
+            <!-- Statuses List -->
+            <div *ngFor="let statusOption of statusOptions" class="status-item">
+              <!-- Dynamically change the icon and styling based on current status -->
+              <div class="status-icon" [ngClass]="{'active-status': status === statusOption.value}">
+                <img [src]="getStatusIcon(statusOption.value)" alt="{{statusOption.text}}">
+              </div>
+              <p [ngClass]="{'active-status-text': status === statusOption.value}">
+                {{ statusOption.text }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+  <!-- Listening Animation (Pulse animation) -->
+  <div class="listening-animation"></div>
+
+  <!-- Status Text (Explaining the monitoring) -->
+  <div class="status-text">
+    <div>System is actively monitoring your vital signs...</div>
+    <div class="pulse-message">Listening for any critical health concerns...</div>
+  </div>
+
+  <!-- Card Content with Heart Rate and BP info -->
+  <div class="card-content">
+    <!-- Heart Rate -->
+    <div class="stat-item">
+      <div class="icon-container">
+        <!-- Heart Rate Icon (SVG) -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+      </div>
+      <div class="stat-value">85 bpm</div>
+      <div class="stat-label">Heart Rate</div>
+    </div>
+
+    <!-- Blood Pressure -->
+    <div class="stat-item">
+      <div class="icon-container">
+        <!-- Blood Pressure Icon (SVG) -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12h-4l-3 9L9 3 6 12H2"></path>
+        </svg>
+      </div>
+      <div class="stat-value">120/80</div>
+      <div class="stat-label">Blood Pressure</div>
+    </div>
+  </div>
+</div>
